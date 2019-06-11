@@ -1060,7 +1060,7 @@ pre .javascript .function {
   box-sizing: border-box;
   position: fixed;
   bottom: -100px;
-  left: 30px;
+  right: 30px;
   z-index: 1050;
   padding: 0 6px;
   width: 24px;
@@ -1643,7 +1643,7 @@ pre .javascript .function {
 }
 .sidebar {
   position: fixed;
-  left: 0;
+  right: 0;
   top: 0;
   bottom: 0;
   width: 0;
@@ -1695,7 +1695,7 @@ pre .javascript .function {
 }
 .sidebar-toggle {
   position: fixed;
-  left: 30px;
+  right: 30px;
   bottom: 45px;
   width: 14px;
   height: 14px;
@@ -1769,7 +1769,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #fff163;
+  background: #053775;
 }
 .feed-link,
 .chat {
