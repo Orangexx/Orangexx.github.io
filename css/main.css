@@ -1063,7 +1063,7 @@ pre .javascript .function {
   right: 30px;
   z-index: 1050;
   padding: 0 6px;
-  width: 24px;
+  width: initial;
   background: #222;
   font-size: 12px;
   opacity: 1;
@@ -1198,7 +1198,6 @@ pre .javascript .function {
 .menu .menu-item a,
 .menu .menu-item span.exturl {
   display: block;
-  color: #ee9572 !important;
   font-size: 13px;
   line-height: inherit;
   border-bottom: 1px solid transparent;
@@ -1206,6 +1205,7 @@ pre .javascript .function {
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
+  color: #ee9572;
 }
 .menu .menu-item a:hover,
 .menu .menu-item span.exturl:hover {
@@ -1661,11 +1661,6 @@ pre .javascript .function {
   color: #eee;
   border-bottom-color: #eee;
 }
-@media (max-width: 991px) {
-  .sidebar {
-    display: none;
-  }
-}
 .sidebar-inner {
   position: relative;
   padding: 20px 10px;
@@ -1709,7 +1704,6 @@ pre .javascript .function {
   .sidebar-toggle {
     opacity: 0.8;
     right: 20px;
-    display: none;
   }
 }
 .sidebar-toggle-line {
@@ -1769,7 +1763,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #fffffc;
+  background: #55d403;
 }
 .feed-link,
 .chat {
@@ -1959,7 +1953,7 @@ pre .javascript .function {
 .with-love {
   display: inline-block;
   margin: 0 5px;
-  color: #808080;
+  color: #EE9572;
 }
 .powered-by,
 .theme-info {
@@ -2126,6 +2120,38 @@ pre .javascript .function {
   top: 50%;
   transform: translate(-50%, -50%);
   color: #ccc;
+}
+.copy-btn {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #333;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: #eee;
+  background-image: linear-gradient(#fcfcfc, #eee);
+  border: 1px solid #d5d5d5;
+  border-radius: 3px;
+  user-select: none;
+  outline: 0;
+}
+.highlight-wrap .copy-btn {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  padding: 2px 6px;
+  position: absolute;
+  right: 4px;
+  top: 8px;
+}
+.highlight-wrap:hover .copy-btn,
+.highlight-wrap .copy-btn:focus {
+  opacity: 1;
+}
+.highlight-wrap {
+  position: relative;
 }
 .page-archive .archive-page-counter {
   position: relative;
@@ -2715,6 +2741,7 @@ hr {
   background-color: #000;
 }
 #sidebar {
+  background: url("");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2741,7 +2768,10 @@ body {
   background: #000 none repeat scroll !important;
 }
 .footer {
-  background: #000 none repeat scroll !important;
+  background: rgba(0,0,0,0.3) none repeat scroll !important;
+}
+.footer-inner {
+  color: #ee9572;
 }
 .main-inner {
   width: 800px;
