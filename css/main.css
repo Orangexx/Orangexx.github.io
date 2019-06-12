@@ -1763,7 +1763,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff8b09;
+  background: #5ec6ff;
 }
 .feed-link,
 .chat {
@@ -2741,7 +2741,7 @@ hr {
   background-color: #000;
 }
 #sidebar {
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.4);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2749,7 +2749,7 @@ hr {
 #sidebar p,
 #sidebar span,
 #sidebar a {
-  color: #ee9572;
+  color: #87daff;
 }
 body {
   background: url("/images/custom/background.jpg");
