@@ -1054,7 +1054,10 @@ pre .javascript .function {
   }
 }
 .comments {
+  padding: 10px;
+  border-radius: 10px;
   margin: 60px 20px 0;
+  background-color: rgba(255,239,213,0.85);
 }
 .back-to-top {
   box-sizing: border-box;
@@ -1763,7 +1766,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffffbf;
+  background: #52b4ec;
 }
 .feed-link,
 .chat {
