@@ -109,12 +109,12 @@
 <meta property="og:site_name" content="自由">
 <meta property="og:description" content="前言作为一个前端小白。。还带点强迫症那种，东改西改改了两三天，大致把想要的效果都改出来了，这里做一个记录。主要是记录，大家也可以当做教程用一下，有些部分不够完善也放了比较详尽的地址。 便于自己记录，博文不光是采用了根据功能记录的结构还采用了根据文件记录的结构。博客搭建使用 Hexo Next Mist">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://orangexx.github.io/Next%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AE%B0%E5%BD%95/20190613082638955.png">
-<meta property="og:updated_time" content="2019-06-13T14:53:47.013Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/mw690/006gMX9lly1g3zy7s5ounj308j0av40g.jpg">
+<meta property="og:updated_time" content="2019-06-13T15:33:26.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Next 定制化记录">
 <meta name="twitter:description" content="前言作为一个前端小白。。还带点强迫症那种，东改西改改了两三天，大致把想要的效果都改出来了，这里做一个记录。主要是记录，大家也可以当做教程用一下，有些部分不够完善也放了比较详尽的地址。 便于自己记录，博文不光是采用了根据功能记录的结构还采用了根据文件记录的结构。博客搭建使用 Hexo Next Mist">
-<meta name="twitter:image" content="https://orangexx.github.io/Next%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AE%B0%E5%BD%95/20190613082638955.png">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/mw690/006gMX9lly1g3zy7s5ounj308j0av40g.jpg">
 
 
 
@@ -403,7 +403,7 @@
                 
               
 
-              <time title="创建时间：2019-06-13 20:14:07 / 修改时间：22:53:47" itemprop="dateCreated datePublished" datetime="2019-06-13T20:14:07+08:00">2019-06-13</time>
+              <time title="创建时间：2019-06-13 20:14:07 / 修改时间：23:33:26" itemprop="dateCreated datePublished" datetime="2019-06-13T20:14:07+08:00">2019-06-13</time>
             
 
             
@@ -519,8 +519,7 @@
 <h3 id="css-variables-custom-style"><a href="#css-variables-custom-style" class="headerlink" title="css/_variables/custom.style"></a>css/_variables/custom.style</h3><p>目录在next/source/css/_variables/custom，Next 标记了一些例如 $brand-color 格式的参数，而在这个文件中就可以对这些参数赋值。我主要是使用这个进行了一些颜色的设置。也可以自己来创建这种参数，然后在这个文件中进行配置。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$brand-color = #EE9572</span><br><span class="line">$menu-textcolor = #EE9572</span><br><span class="line">$grey-dark = #EE9572</span><br><span class="line">$footer-text-Color = #EE9572</span><br><span class="line">$site-description-color = #87DAFF</span><br></pre></td></tr></table></figure>
 
-<h2 id="根据功能记录"><a href="#根据功能记录" class="headerlink" title="根据功能记录"></a>根据功能记录</h2><h3 id="Hitokoto-调用在侧边框"><a href="#Hitokoto-调用在侧边框" class="headerlink" title="Hitokoto 调用在侧边框"></a>Hitokoto 调用在侧边框</h3><p><img src="/Next%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AE%B0%E5%BD%95/20190613082638955.png" alt="待添加"></p>
-<p><a href="https://hitokoto.cn/" target="_blank" rel="noopener"><strong>Hitokoto</strong></a>的介绍可以直接点进去看一下。<br>由于是前端小白。。就硬着头皮找侧边框的文件，然后添加上去，文件在 \next\layout_macro\sidebar.swig，具体的修改是在渲染描述那行前面加了两行代码。原理就是调用了 Hitokoto 官方提供的 Script 标签，然后使用 div 用  Description 的模式展示出来，用 id 来标定文本。</p>
+<h2 id="根据功能记录"><a href="#根据功能记录" class="headerlink" title="根据功能记录"></a>根据功能记录</h2><h3 id="Hitokoto-调用在侧边框"><a href="#Hitokoto-调用在侧边框" class="headerlink" title="Hitokoto 调用在侧边框"></a>Hitokoto 调用在侧边框</h3><p><img src="https://ws1.sinaimg.cn/mw690/006gMX9lly1g3zy7s5ounj308j0av40g.jpg" alt="Hitokoto效果"><br>具体效果就是每次刷新界面都会有不一样的句子，<a href="https://hitokoto.cn/" target="_blank" rel="noopener"><strong>Hitokoto</strong></a>的介绍可以直接点进去看一下。<br>由于是前端小白。。就硬着头皮找侧边框的文件，然后添加上去，文件在 \next\layout_macro\sidebar.swig，具体的修改是在渲染描述那行前面加了两行代码。原理就是调用了 Hitokoto 官方提供的 Script 标签，然后使用 div 用  Description 的模式展示出来，用 id 来标定文本。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://v1.hitokoto.cn/?c=d&amp;encode=js&amp;select=%23hitokoto&quot; defer&gt;&lt;/script&gt;</span><br><span class="line">    &lt;div class=&quot;site-description motion-element&quot; id=&quot;hitokoto&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;site-description motion-element&quot; itemprop=&quot;description&quot;&gt;&#123;&#123; description &#125;&#125;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 
 <h3 id="文章加密"><a href="#文章加密" class="headerlink" title="文章加密"></a>文章加密</h3><p>加密方法网上主要有两种，一种是直接加脚本判断，不过只要浏览者看一下源码就能看到，而另一种是使用 <a href="https://github.com/MikeCoder/hexo-blog-encrypt" target="_blank" rel="noopener"><strong>hexo-blog-encrypt</strong></a> 插件，说明很详细，但是在使用的时候和 next 有冲突，文档中的一些方法还用不了，我出现的问题是加密的文档没法显示目录，经过一番修改后也只是做成了加密文档的目录不会加密的效果，勉勉强强解决了，具体解决方法在此 GitHub仓库 的 <a href="https://github.com/MikeCoder/hexo-blog-encrypt/issues/16" target="_blank" rel="noopener">这个Issues</a> 下，由于版本不同源代码已经进行了更新，大家还是对着这解决方案自己一点点改比较好，感谢 edward-p 和 xmeng1 的分享，对于 mist 来说两位大佬的方案都要采用，其他的主题模式不太清楚。</p>
