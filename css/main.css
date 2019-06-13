@@ -1743,7 +1743,7 @@ pre .javascript .function {
   margin-top: 5px;
   text-align: center;
   font-size: 14px;
-  color: #999;
+  color: #87daff;
 }
 .links-of-author {
   margin-top: 20px;
@@ -1766,7 +1766,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #77be13;
+  background: #2ebf33;
 }
 .feed-link,
 .chat {
