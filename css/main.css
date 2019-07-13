@@ -1,3 +1,10 @@
+/*
+$brand-color = #87DAFF
+$menu-textcolor = #87DAFF
+$grey-dark = #87DAFF
+$footer-text-Color = #87DAFF
+$site-description-color = #87DAFF
+*/
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 html {
   line-height: 1.15; /* 1 */
@@ -386,7 +393,7 @@ kbd {
 .translation {
   margin-top: -20px;
   font-size: 14px;
-  color: #ee9572;
+  color: #999;
 }
 .scrollbar-measure {
   width: 100px;
@@ -1053,12 +1060,6 @@ pre .javascript .function {
     border-bottom-color: #222;
   }
 }
-.comments {
-  padding: 10px;
-  border-radius: 10px;
-  margin: 60px 20px 0;
-  background-color: rgba(255,239,213,0.85);
-}
 .back-to-top {
   box-sizing: border-box;
   position: fixed;
@@ -1110,7 +1111,7 @@ pre .javascript .function {
   position: relative;
   display: inline-block;
   padding: 0 40px;
-  color: #ee9572;
+  color: #222;
   background: #222;
   border-bottom: none;
 }
@@ -1208,7 +1209,7 @@ pre .javascript .function {
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
-  color: #ee9572;
+  color: $menu-textcolor;
 }
 .menu .menu-item a:hover,
 .menu .menu-item span.exturl:hover {
@@ -1240,7 +1241,7 @@ pre .javascript .function {
   margin: -20px auto 15px;
   text-align: center;
   font-size: 14px;
-  color: #ee9572;
+  color: #999;
   font-weight: bold;
   line-height: 1;
 }
@@ -1487,7 +1488,7 @@ pre .javascript .function {
 }
 .posts-expand .post-meta {
   margin: 3px 0 60px 0;
-  color: #ee9572;
+  color: #999;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 12px;
   text-align: center;
@@ -1498,14 +1499,14 @@ pre .javascript .function {
   padding: 3px;
 }
 .posts-expand .post-meta .post-category-list-link {
-  color: #ee9572;
+  color: #999;
 }
 .posts-expand .post-meta .post-description {
   font-size: 14px;
   margin-top: 2px;
 }
 .posts-expand .post-meta time {
-  border-bottom: 1px dashed #ee9572;
+  border-bottom: 1px dashed #999;
   cursor: help;
 }
 .post-meta-divider {
@@ -1666,7 +1667,7 @@ pre .javascript .function {
 }
 .sidebar a,
 .sidebar span.exturl {
-  color: #ee9572;
+  color: #999;
   border-bottom-color: #555;
 }
 .sidebar a:hover,
@@ -1677,7 +1678,7 @@ pre .javascript .function {
 .sidebar-inner {
   position: relative;
   padding: 20px 10px;
-  color: #ee9572;
+  color: #999;
   text-align: center;
 }
 .site-overview-wrap {
@@ -1753,7 +1754,7 @@ pre .javascript .function {
   margin-top: 5px;
   text-align: center;
   font-size: 14px;
-  color: #87daff;
+  color: #999;
 }
 .links-of-author {
   margin-top: 20px;
@@ -1776,7 +1777,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #471df7;
+  background: #bb9e6b;
 }
 .feed-link,
 .chat {
@@ -1955,7 +1956,7 @@ pre .javascript .function {
 }
 .footer {
   font-size: 14px;
-  color: #ee9572;
+  color: #999;
 }
 .footer img {
   border: none;
@@ -1966,7 +1967,7 @@ pre .javascript .function {
 .with-love {
   display: inline-block;
   margin: 0 5px;
-  color: #EE9572;
+  color: ;
 }
 .powered-by,
 .theme-info {
@@ -2752,40 +2753,4 @@ hr {
 #posts code {
   color: #fffff0;
   background-color: #000;
-}
-#sidebar {
-  background-color: rgba(0,0,0,0.4);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-#sidebar p,
-#sidebar span,
-#sidebar a {
-  color: #87daff;
-}
-body {
-  background: url("https://i.loli.net/2019/06/14/5d037fd143f0220679.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-}
-.content {
-  padding: 20px;
-  border-radius: 10px;
-  margin-top: 60px;
-  background: rgba(255,251,240,0.85) none repeat scroll !important;
-}
-.header {
-  background: #000 none repeat scroll !important;
-}
-.footer {
-  background: rgba(0,0,0,0.3) none repeat scroll !important;
-}
-.footer-inner {
-  color: #ee9572;
-}
-.main-inner {
-  width: 800px;
 }
