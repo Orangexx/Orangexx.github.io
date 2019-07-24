@@ -117,7 +117,7 @@
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/gif/227328/1563979984244-a967eabf-f9fc-4ec2-a6ec-e362699e0615.gif">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/227328/1548068105048-6feba29d-c99f-4aab-bb9c-ccfcd90c2b77.png">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/gif/227328/1563982133365-0285aa5a-7691-49cc-87b0-b836d1db0b6f.gif">
-<meta property="og:updated_time" content="2019-07-24T15:36:14.520Z">
+<meta property="og:updated_time" content="2019-07-24T15:42:58.792Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shader3_UI滤波扩展以及铅笔画效果">
 <meta name="twitter:description" content="Pencil 铅笔画效果">
@@ -427,7 +427,7 @@
                 
               
 
-              <time title="创建时间：2019-07-24 23:33:32 / 修改时间：23:36:14" itemprop="dateCreated datePublished" datetime="2019-07-24T23:33:32+08:00">2019-07-24</time>
+              <time title="创建时间：2019-07-24 23:33:32 / 修改时间：23:42:58" itemprop="dateCreated datePublished" datetime="2019-07-24T23:33:32+08:00">2019-07-24</time>
             
 
             
@@ -559,8 +559,8 @@
 
 <p>依次进行了滤波、灰度图处理、1-操作</p>
 <ul>
-<li>滤波的效果是突出边界，把连续颜色值归为1</li>
-<li>灰度图处理的效果是把边界的颜色改为铅笔的效果，而黑色的地方是(0,0,0)，即使进行了灰度计算也还是(0,0,0)</li>
+<li>滤波的效果是突出边界，把连续颜色值归为0。</li>
+<li>灰度图处理的效果是把边界的颜色改为铅笔的效果，而黑色的地方是(0,0,0)，即使进行了灰度计算也还是(0,0,0)。</li>
 <li>1- 操作就是将黑色部分变为了白色，铅笔画效果基本不变，或者说变成了1-，翻转的效果23333。</li>
 </ul>
 <p>另外最后返回的值中透明度使用的是 filterCol.a，即原图的透明度分布。对于导入的图片没有透明度通道的话，这个算法就会出现问题了，但是游戏开发中的图片一般都是具有透明度通道的，所以这个基本上够用了，如果没有透明度通道的话，所有的透明度都应该是1，在最后返回的值把 filter.a 改为 1 即可。</p>
