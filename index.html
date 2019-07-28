@@ -374,6 +374,239 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://orangexx.github.io/2019/07/28/Unity/Unity/Unity 渲染管线（三）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="胡桃丐丐">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://i.loli.net/2019/06/14/5d037fb3ab80833767.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="自由">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/28/Unity/Unity/Unity 渲染管线（三）/" class="post-title-link" itemprop="url">Unity渲染管线（三） 深度值、渲染队列</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-28 23:15:00" itemprop="dateCreated datePublished" datetime="2019-07-28T23:15:00+08:00">2019-07-28</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-29 00:53:32" itemprop="dateModified" datetime="2019-07-29T00:53:32+08:00">2019-07-29</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/07/28/Unity/Unity/Unity 渲染管线（三）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/28/Unity/Unity/Unity 渲染管线（三）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/07/28/Unity/Unity/Unity 渲染管线（三）/" class="leancloud_visitors" data-flag-title="Unity渲染管线（三） 深度值、渲染队列">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">3.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">6 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一章讲了使用 LWRP 的 Renderer Feature 来实现遮挡显示轮廓的效果，这节课对应着来用 Shader 实现，让我们看一下具体 Renderer Feature 完成了 Shader 中的哪些操作</p>
+<p><img src="http://www.reedleaves.ml/imgs/2019/07/34d3261e83de3387.gif" alt="效果图"></p>
+<p>另外，和上一节的效果相同，存在同一个BUG，使用同一个遮挡显示效果的 GameObject A与B，当都被遮挡住时，两者的轮廓不一定是A在前还是B在前，因为同一队列的两个物体不一定是谁先被渲染，目前没有找到控制该顺序的较好方法。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/07/28/Unity/Unity/Unity 渲染管线（三）/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://orangexx.github.io/2019/07/28/Unity/Unity/Unity 渲染管线（二）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1038,227 +1271,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://orangexx.github.io/2019/07/21/Unity/Unity/Shader2_UI模糊效果(滤波)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="胡桃丐丐">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://i.loli.net/2019/06/14/5d037fb3ab80833767.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="自由">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/07/21/Unity/Unity/Shader2_UI模糊效果(滤波)/" class="post-title-link" itemprop="url">Shader2_UI模糊效果(滤波)</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-07-21 15:30:32 / 修改时间：15:33:36" itemprop="dateCreated datePublished" datetime="2019-07-21T15:30:32+08:00">2019-07-21</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/07/21/Unity/Unity/Shader2_UI模糊效果(滤波)/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/21/Unity/Unity/Shader2_UI模糊效果(滤波)/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/07/21/Unity/Unity/Shader2_UI模糊效果(滤波)/" class="leancloud_visitors" data-flag-title="Shader2_UI模糊效果(滤波)">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">4.5k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">8 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本章使用 滤波效果来介绍使用 .cginc。</p>
-<p>模糊效果，其实模糊也可以称之为重影，一般的模糊是边线分的不太清，而用重影解释的话，就是由于出现多个边线叠在一起了。滤波是数学或者物理上的一个概念，总体可以理解成将波动较大的波变成相对平缓的波，如果清晰对应于边线明显、边线两边颜色值跳跃过大的话，模糊就对应于边线不清晰，颜色值过度平缓，所以使用滤波是可以达到这种效果的。这里先看一张模糊的效果图，可以发现模糊的比较厉害的时候就出现了很明显的多个影子。</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2019/gif/227328/1563685761689-8fa17a7c-4dc7-465c-8e1a-0be0bdbf6cb3.gif" alt="Blur.gif"></p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/07/21/Unity/Unity/Shader2_UI模糊效果(滤波)/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://orangexx.github.io/2019/07/21/Unity/Unity/Shader1_Unity 默认渲染管线 与 .cginc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1480,7 +1492,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://orangexx.github.io/2019/07/20/文学/文学/被嫌弃的松子的一生/">
+    <link itemprop="mainEntityOfPage" href="https://orangexx.github.io/2019/07/21/Unity/Unity/Shader2_UI模糊效果(滤波)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="胡桃丐丐">
@@ -1500,7 +1512,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/07/20/文学/文学/被嫌弃的松子的一生/" class="post-title-link" itemprop="url">被嫌弃的松子的一生（未完成）</a>
+                <a href="/2019/07/21/Unity/Unity/Shader2_UI模糊效果(滤波)/" class="post-title-link" itemprop="url">Shader2_UI模糊效果(滤波)</a>
               
             
           </h1>
@@ -1525,7 +1537,7 @@
                 
               
 
-              <time title="创建时间：2019-07-20 14:43:09 / 修改时间：14:44:58" itemprop="dateCreated datePublished" datetime="2019-07-20T14:43:09+08:00">2019-07-20</time>
+              <time title="创建时间：2019-07-21 15:30:32 / 修改时间：15:33:36" itemprop="dateCreated datePublished" datetime="2019-07-21T15:30:32+08:00">2019-07-21</time>
             
 
             
@@ -1547,7 +1559,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/文学/" itemprop="url" rel="index"><span itemprop="name">文学</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a></span>
 
                 
                 
@@ -1566,8 +1578,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/07/20/文学/文学/被嫌弃的松子的一生/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/20/文学/文学/被嫌弃的松子的一生/" itemprop="commentCount"></span>
+                <a href="/2019/07/21/Unity/Unity/Shader2_UI模糊效果(滤波)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/21/Unity/Unity/Shader2_UI模糊效果(滤波)/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1575,7 +1587,7 @@
 
           
           
-            <span id="/2019/07/20/文学/文学/被嫌弃的松子的一生/" class="leancloud_visitors" data-flag-title="被嫌弃的松子的一生（未完成）">
+            <span id="/2019/07/21/Unity/Unity/Shader2_UI模糊效果(滤波)/" class="leancloud_visitors" data-flag-title="Shader2_UI模糊效果(滤波)">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -1600,7 +1612,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">0</span>
+                <span title="本文字数">4.5k</span>
               
 
               
@@ -1614,7 +1626,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长">8 分钟</span>
               
             </div>
           
@@ -1635,9 +1647,18 @@
 
       
         
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本章使用 滤波效果来介绍使用 .cginc。</p>
+<p>模糊效果，其实模糊也可以称之为重影，一般的模糊是边线分的不太清，而用重影解释的话，就是由于出现多个边线叠在一起了。滤波是数学或者物理上的一个概念，总体可以理解成将波动较大的波变成相对平缓的波，如果清晰对应于边线明显、边线两边颜色值跳跃过大的话，模糊就对应于边线不清晰，颜色值过度平缓，所以使用滤波是可以达到这种效果的。这里先看一张模糊的效果图，可以发现模糊的比较厉害的时候就出现了很明显的多个影子。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2019/gif/227328/1563685761689-8fa17a7c-4dc7-465c-8e1a-0be0bdbf6cb3.gif" alt="Blur.gif"></p>
+          <!--noindex-->
           
-            
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/07/21/Unity/Unity/Shader2_UI模糊效果(滤波)/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
@@ -1788,6 +1809,218 @@
           
           
             <span id="/2019/07/20/文学/文学/河童/" class="leancloud_visitors" data-flag-title="河童（未完成）">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">0</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://orangexx.github.io/2019/07/20/文学/文学/被嫌弃的松子的一生/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="胡桃丐丐">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://i.loli.net/2019/06/14/5d037fb3ab80833767.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="自由">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/20/文学/文学/被嫌弃的松子的一生/" class="post-title-link" itemprop="url">被嫌弃的松子的一生（未完成）</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-20 14:43:09 / 修改时间：14:44:58" itemprop="dateCreated datePublished" datetime="2019-07-20T14:43:09+08:00">2019-07-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/文学/" itemprop="url" rel="index"><span itemprop="name">文学</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/07/20/文学/文学/被嫌弃的松子的一生/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/20/文学/文学/被嫌弃的松子的一生/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/07/20/文学/文学/被嫌弃的松子的一生/" class="leancloud_visitors" data-flag-title="被嫌弃的松子的一生（未完成）">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -2137,237 +2370,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://orangexx.github.io/2019/07/11/Unity/Unity/实用 Shader/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="胡桃丐丐">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://i.loli.net/2019/06/14/5d037fb3ab80833767.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="自由">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/07/11/Unity/Unity/实用 Shader/" class="post-title-link" itemprop="url">实用Shader</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-07-11 23:51:00" itemprop="dateCreated datePublished" datetime="2019-07-11T23:51:00+08:00">2019-07-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-21 15:33:22" itemprop="dateModified" datetime="2019-07-21T15:33:22+08:00">2019-07-21</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/07/11/Unity/Unity/实用 Shader/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/11/Unity/Unity/实用 Shader/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/07/11/Unity/Unity/实用 Shader/" class="leancloud_visitors" data-flag-title="实用Shader">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">12k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">22 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>实用的一些 Shader，语雀迁移</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/07/11/Unity/Unity/实用 Shader/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://orangexx.github.io/2019/07/11/Unity/Unity/常用 Shader 函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2635,7 +2637,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2886,7 +2888,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">70k</span>
+    <span title="站点总字数">73k</span>
   
 
   
@@ -2897,7 +2899,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">2:07</span>
+    <span title="站点阅读时长">2:12</span>
   
 </div>
 
