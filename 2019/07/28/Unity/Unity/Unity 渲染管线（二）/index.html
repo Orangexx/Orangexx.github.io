@@ -103,14 +103,36 @@
 
 
 
-  <meta name="keywords" content="Unity；生活；艺术；游戏；">
-<meta property="og:type" content="website">
-<meta property="og:title" content="自由">
-<meta property="og:url" content="https://orangexx.github.io/categories/电影/index.html">
+  <meta name="description" content="前言咕咕咕了半个月。。 这次从通过 LWRP 的 Render Features 实现遮挡显示轮廓效果来让大家对渲染管线有一个大致的轮廓。 参考链接  使用Unity2019 中LWRP，可以非常轻松地对被墙壁遮挡的角色进行剪影 Introduction to the Lightweight Render Pipeline - Unity at GDC 2019">
+<meta name="keywords" content="渲染管线,图形学,Shader,Unity渲染管线">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity渲染管线（二） 深度值相关">
+<meta property="og:url" content="https://orangexx.github.io/2019/07/28/Unity/Unity/Unity 渲染管线（二）/index.html">
 <meta property="og:site_name" content="自由">
+<meta property="og:description" content="前言咕咕咕了半个月。。 这次从通过 LWRP 的 Render Features 实现遮挡显示轮廓效果来让大家对渲染管线有一个大致的轮廓。 参考链接  使用Unity2019 中LWRP，可以非常轻松地对被墙壁遮挡的角色进行剪影 Introduction to the Lightweight Render Pipeline - Unity at GDC 2019">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.reedleaves.ml/imgs/2019/07/ea4cb53a70c3812e.gif">
+<meta property="og:image" content="http://www.reedleaves.ml/imgs/2019/07/0045d53ced9a80c0.png">
+<meta property="og:image" content="http://www.reedleaves.ml/imgs/2019/07/4a91a03e37b02761.png">
+<meta property="og:image" content="http://www.reedleaves.ml/imgs/2019/07/358e998b5003662c.png">
+<meta property="og:image" content="http://www.reedleaves.ml/imgs/2019/07/00ab0e417a5fd83c.png">
+<meta property="og:image" content="http://www.reedleaves.ml/imgs/2019/07/527e632dfb752413.png">
+<meta property="og:image" content="http://www.reedleaves.ml/imgs/2019/07/052c795cca26f788.png">
+<meta property="og:image" content="http://www.reedleaves.ml/imgs/2019/07/56f8b4dc7a393926.png">
+<meta property="og:image" content="http://www.reedleaves.ml/imgs/2019/07/9ac8e5dc25c4c8cf.png">
+<meta property="og:image" content="http://www.reedleaves.ml/imgs/2019/07/18c0cd2fe446e39e.png">
+<meta property="og:image" content="http://www.reedleaves.ml/imgs/2019/07/6980ff22ff7d9bcf.png">
+<meta property="og:image" content="http://www.reedleaves.ml/imgs/2019/07/e908447ad07013f1.png">
+<meta property="og:image" content="http://www.reedleaves.ml/imgs/2019/07/52f1d48711525585.png">
+<meta property="og:image" content="http://www.reedleaves.ml/imgs/2019/07/968711ac4aa47778.png">
+<meta property="og:image" content="http://www.reedleaves.ml/imgs/2019/07/f0c87c41c8c2b572.png">
+<meta property="og:image" content="http://www.reedleaves.ml/imgs/2019/07/c55d508d32f8852e.png">
+<meta property="og:image" content="http://www.reedleaves.ml/imgs/2019/07/50318a9fed67dc34.gif">
+<meta property="og:updated_time" content="2019-07-28T09:21:39.686Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自由">
+<meta name="twitter:title" content="Unity渲染管线（二） 深度值相关">
+<meta name="twitter:description" content="前言咕咕咕了半个月。。 这次从通过 LWRP 的 Render Features 实现遮挡显示轮廓效果来让大家对渲染管线有一个大致的轮廓。 参考链接  使用Unity2019 中LWRP，可以非常轻松地对被墙壁遮挡的角色进行剪影 Introduction to the Lightweight Render Pipeline - Unity at GDC 2019">
+<meta name="twitter:image" content="http://www.reedleaves.ml/imgs/2019/07/ea4cb53a70c3812e.gif">
 
 
 
@@ -118,7 +140,7 @@
 
   
   
-  <link rel="canonical" href="https://orangexx.github.io/categories/电影/">
+  <link rel="canonical" href="https://orangexx.github.io/2019/07/28/Unity/Unity/Unity 渲染管线（二）/">
 
 
 
@@ -128,7 +150,7 @@
   };
 </script>
 
-  <title>分类: 电影 | 自由</title>
+  <title>Unity渲染管线（二） 深度值相关 | 自由</title>
   
 
 
@@ -176,7 +198,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -312,28 +334,6 @@
   
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
   
 
   
@@ -379,57 +379,362 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>电影<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://orangexx.github.io/2019/07/28/Unity/Unity/Unity 渲染管线（二）/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="胡桃丐丐">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://i.loli.net/2019/06/14/5d037fb3ab80833767.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="自由">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2019/06/22/电影/电影/小偷家族/" itemprop="url">
-            
-              <span itemprop="name">小偷家族</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Unity渲染管线（二） 深度值相关
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-22T23:24:08+08:00" content="2019-06-22">
-          06-22
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-28 00:50:00 / 修改时间：17:21:39" itemprop="dateCreated datePublished" datetime="2019-07-28T00:50:00+08:00">2019-07-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/07/28/Unity/Unity/Unity 渲染管线（二）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/28/Unity/Unity/Unity 渲染管线（二）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/07/28/Unity/Unity/Unity 渲染管线（二）/" class="leancloud_visitors" data-flag-title="Unity渲染管线（二） 深度值相关">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">2.5k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">4 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>咕咕咕了半个月。。</p>
+<p>这次从通过 LWRP 的 Render Features 实现遮挡显示轮廓效果来让大家对渲染管线有一个大致的轮廓。</p>
+<p>参考链接</p>
+<ul>
+<li><a href="https://blog.csdn.net/u010019717/article/details/89601586" target="_blank" rel="noopener">使用Unity2019 中LWRP，可以非常轻松地对被墙壁遮挡的角色进行剪影</a></li>
+<li><a href="https://www.youtube.com/watch?v=jqBtaETaNO4" target="_blank" rel="noopener">Introduction to the Lightweight Render Pipeline - Unity at GDC 2019</a></li>
+</ul>
+<a id="more"></a>
+
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>效果：</p>
+<p><img src="http://www.reedleaves.ml/imgs/2019/07/ea4cb53a70c3812e.gif" alt></p>
+<p>是一个当固定层级物体被遮挡后显示轮廓的功能，使用 Shader 也可以完成，使用 LWRP 的 Render Features 的话完成的更直观一些。</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ul>
+<li><p><img src="http://www.reedleaves.ml/imgs/2019/07/0045d53ced9a80c0.png" alt><br><img src="http://www.reedleaves.ml/imgs/2019/07/4a91a03e37b02761.png" alt="安装 LWRP"><br>此次运行版本需要 2019 四月份以后的版本，我选择的是 2019.1.9f1，在创建项目时直接创建 LWRP项目， LWRP 的版本要求是 5.7 以上，在 Windows—&gt;Package Manager 中下载。</p>
+</li>
+<li><p><img src="http://www.reedleaves.ml/imgs/2019/07/358e998b5003662c.png" alt="勾选 pre"><br>需要勾选 show preview package 才能显示预览版的功能包。</p>
+</li>
+<li><p><img src="http://www.reedleaves.ml/imgs/2019/07/00ab0e417a5fd83c.png" alt><br><img src="http://www.reedleaves.ml/imgs/2019/07/527e632dfb752413.png" alt><br>分别创建 管线资源 和 前向渲染器</p>
+</li>
+<li><p><img src="http://www.reedleaves.ml/imgs/2019/07/052c795cca26f788.png" alt><br><img src="http://www.reedleaves.ml/imgs/2019/07/56f8b4dc7a393926.png" alt><br>在 Project Setting 中 将创建好的渲染管线拖入其中，把 LWRP资源的 渲染模式改为 Custom 并把创建的 前向渲染器资源 拖到 LWRP 资源中。</p>
+</li>
+<li><p><img src="http://www.reedleaves.ml/imgs/2019/07/9ac8e5dc25c4c8cf.png" alt><br>新建一个场景，放置几个资源，会发现新建的 3D GameObjcet 使用了不同的 默认 Shader，这是由于更换了渲染管线，具体的 默认Shader 也随之改变了。</p>
+</li>
+<li><p><img src="http://www.reedleaves.ml/imgs/2019/07/18c0cd2fe446e39e.png" alt><br><img src="http://www.reedleaves.ml/imgs/2019/07/6980ff22ff7d9bcf.png" alt><br>在 前向渲染器 中添加如图所示的一个 RendererFeature，其中的材质是选择的一个 Unity 自带的默认材质，并把如图后面两个资源改为 Character 层级，得到的效果就像第二幅图一样，有个地方不尽人意，就是同为 Character 层级，也出现了遮挡后显示轮廓的效果。</p>
+</li>
+<li><p><img src="http://www.reedleaves.ml/imgs/2019/07/e908447ad07013f1.png" alt><br>如图所示，将 ForwardRender 再新建一个 RenderFeatrues，并把 前向渲染器的 默认层级遮罩 取消掉勾选 Character 层级，就大致可以得到文章开头的效果了。</p>
+</li>
+<li><p><img src="http://www.reedleaves.ml/imgs/2019/07/52f1d48711525585.png" alt><br><img src="http://www.reedleaves.ml/imgs/2019/07/968711ac4aa47778.png" alt><br>存在一个问题，就是同层级的物体之间还是可能会有出现遮挡显示轮廓的效果，但我们可以把他们当做一体选择一个只有颜色没有轮廓的 材质 来做遮挡显示。</p>
+</li>
+</ul>
+<h2 id="讲解"><a href="#讲解" class="headerlink" title="讲解"></a>讲解</h2><p>前面的创建与设置过程不做讲解，主要是一些默认操作，很多参数也是保持了默认。主要是对效果实现的讲解。</p>
+<h3 id="原理科普"><a href="#原理科普" class="headerlink" title="原理科普"></a>原理科普</h3><ul>
+<li><p>渲染队列</p>
+<p>场景中有一个一个的 GameObject（下面简称为 GO），对于这些 GO，我们要根据其身上的材质进行渲染，这里有一个问题，即先渲染哪一个后渲染哪一个，不要以为渲染顺序不会影响最终效果，渲染顺序透明度实现上会产生很大的影响。</p>
+<p>而这里使用 Rendere Feature 强行改变了渲染队列，以及后续渲染采用的 材质。</p>
+</li>
+<li><p>深度值 </p>
+<p>即 Z。摄像机在游戏中相当于我们的眼睛，我们只能看到眼睛最前面的片元A，而看不到挡在后面的片元B，就是说B离我们远，抽象到渲染中就是 Z 值比较大，这样的话我们可以在渲染物体时判断其 Z值 是否大于当前存储的 Z值，如果大于就不渲染，如果小于就渲染，并把存储的 Z值 更新。</p>
+<p>深度测试通过，深度写入开启：写入深度缓冲区，写入颜色缓冲区<br>深度测试通过，深度写入关闭：不写深度缓冲区，写入颜色缓冲区<br>深度测试失败，深度写入开启：不写深度缓冲区，不写颜色缓冲区<br>深度测试失败，深度写入关闭：不写深度缓冲区，不写颜色缓冲区</p>
+</li>
+</ul>
+<ul>
+<li><p>ZTest 深度值测试，通过测试才进行渲染<br> ZTest Less：深度小于当前缓存则通过<br> ZTest Greater：深度大于当前缓存则通过<br> ZTest LEqual/on：深度小于等于当前缓存则通过<br> ZTest GEqual：深度大于等于当前缓存则通过<br> ZTest Equal：深度等于当前缓存则通过<br> ZTest NotEqual：深度不等于当前缓存则通过<br> ZTest Always/off：不论如何都通过</p>
+</li>
+<li><p>ZWrite  on/off   深度值写入，当渲染通过是是否写入新的深度值</p>
+<p>在 Renderer Feature 中，也是将这个深度测试与深度写入单独抽出来，在外部进行更改。</p>
+</li>
+</ul>
+<h3 id="面板分析"><a href="#面板分析" class="headerlink" title="面板分析"></a>面板分析</h3><p><img src="http://www.reedleaves.ml/imgs/2019/07/f0c87c41c8c2b572.png" alt><br>  让我们分析一下这个面板</p>
+<ul>
+<li>Deafult Layer Mask，这个分层级进行渲染，如果我们选择 Nothing，那么所有的层级都不会被渲染</li>
+<li>Overrids，这个是指覆盖，即通过筛选之后得到需要进行操作的部分进行覆盖绘制，Stencil 这里没有用到，后续会进行讲解。</li>
+<li>Renderer Features<ul>
+<li>Name，Renderer Features 的名字</li>
+<li>Event，指在什么时候进行操作</li>
+<li>Fliters<ul>
+<li>Queue，队列，Opaque 指筛选不透明的队列</li>
+<li>Layer Mask，筛选 Character 层级</li>
+<li>Shader Passes，具体使用到的 Shader Pass</li>
+</ul>
+</li>
+<li>Overrieds  覆盖绘制<ul>
+<li>Material 覆盖绘制的材质</li>
+<li>Depth 深度<ul>
+<li>是否把深度写入</li>
+<li>是否测试深度，这里选择深度大于渲染过程中的深度值才进行渲染，即当物体深度值比较大被其他物体遮挡住的时候被渲染，也就是只有被遮挡的部分才会被渲染</li>
+<li>其余待后续测试</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="效果实现"><a href="#效果实现" class="headerlink" title="效果实现"></a>效果实现</h3><p><img src="http://www.reedleaves.ml/imgs/2019/07/c55d508d32f8852e.png" alt></p>
+<p><img src="http://www.reedleaves.ml/imgs/2019/07/50318a9fed67dc34.gif" alt><br>实际上我们分为三个步骤</p>
+<ul>
+<li><p>对遮挡部分进行渲染，然后发现被同一层级遮挡的部分也被渲染了；</p>
+</li>
+<li><p>然后取消一开始对 Character 层级的渲染，即在 前向渲染器中 的 Deafult Layer Mask 取消对 Character 的勾选；</p>
+</li>
+<li><p>然后发现不被遮挡的部分不会被渲染，这个时候我们选择正常根据深度值缓存来渲染出不被遮挡的部分。</p>
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>其实使用 Shader 我们一样可以实现相同的效果，甚至在原理上也差不多，但是使用编写的方式相当于改变了 Shader 效果本身，使用 RenderFeatures 相当于在外部来更改其一些参数来使用，把 Shader、材质当做对象在不同的条件下调用可以说是 渲染管线 的一部分责任。</p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>胡桃丐丐</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="https://orangexx.github.io/2019/07/28/Unity/Unity/Unity 渲染管线（二）/" title="Unity渲染管线（二） 深度值相关">https://orangexx.github.io/2019/07/28/Unity/Unity/Unity 渲染管线（二）/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/渲染管线/" rel="tag"># 渲染管线</a>
+          
+            <a href="/tags/图形学/" rel="tag"># 图形学</a>
+          
+            <a href="/tags/Shader/" rel="tag"># Shader</a>
+          
+            <a href="/tags/Unity渲染管线/" rel="tag"># Unity渲染管线</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/24/Unity/Unity/Shader3_UI滤波扩展以及铅笔画效果/" rel="next" title="Shader3_UI滤波扩展以及铅笔画效果">
+                <i class="fa fa-chevron-left"></i> Shader3_UI滤波扩展以及铅笔画效果
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -449,9 +754,18 @@
       
  
 	  
+	          <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 	  
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -692,6 +1006,23 @@
 
 
 	        
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">2.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤"><span class="nav-number">3.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#讲解"><span class="nav-number">4.</span> <span class="nav-text">讲解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原理科普"><span class="nav-number">4.1.</span> <span class="nav-text">原理科普</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面板分析"><span class="nav-number">4.2.</span> <span class="nav-text">面板分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#效果实现"><span class="nav-number">4.3.</span> <span class="nav-text">效果实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+		
 	
 
       
@@ -835,6 +1166,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
 
   
 
@@ -880,6 +1215,8 @@
 
 
 
+
+  
 
 
   
