@@ -104,19 +104,19 @@
 
 
   <meta name="description" content="前言这里的编辑器开发指的是针对游戏运行时功能开发的编辑器，更多是针对策划使用的，而不是一键生成脚本的这种。 像是程序自己使用方便自己、一键生成配置文件对应脚本之类的完全可以只做成一个按钮，因为程序使用的编辑器基本上只涉及到一些路径之类的参数，参数修改过一次后在项目开发中也不会去动，如果有改动也只需要在代码里修改就好了。 其实可能是我自己比较钻牛角尖，导致很多时候开发不必要的编辑器，到最后发现还不如">
-<meta name="keywords" content="游戏开发,思想,编辑器">
+<meta name="keywords" content="游戏开发,编辑器,思想">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编辑器思想之为什么做怎么做？">
 <meta property="og:url" content="https://orangexx.github.io/2019/07/11/Unity/Unity/编辑器思想之为什么做怎么做/index.html">
 <meta property="og:site_name" content="自由">
 <meta property="og:description" content="前言这里的编辑器开发指的是针对游戏运行时功能开发的编辑器，更多是针对策划使用的，而不是一键生成脚本的这种。 像是程序自己使用方便自己、一键生成配置文件对应脚本之类的完全可以只做成一个按钮，因为程序使用的编辑器基本上只涉及到一些路径之类的参数，参数修改过一次后在项目开发中也不会去动，如果有改动也只需要在代码里修改就好了。 其实可能是我自己比较钻牛角尖，导致很多时候开发不必要的编辑器，到最后发现还不如">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.reedleaves.ml/imgs/2019/07/d2fd7b95edcd0800.png">
-<meta property="og:updated_time" content="2019-07-11T15:25:26.000Z">
+<meta property="og:image" content="http://106.13.190.225//imgs/2019/07/d2fd7b95edcd0800.png">
+<meta property="og:updated_time" content="2019-09-24T10:54:07.064Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编辑器思想之为什么做怎么做？">
 <meta name="twitter:description" content="前言这里的编辑器开发指的是针对游戏运行时功能开发的编辑器，更多是针对策划使用的，而不是一键生成脚本的这种。 像是程序自己使用方便自己、一键生成配置文件对应脚本之类的完全可以只做成一个按钮，因为程序使用的编辑器基本上只涉及到一些路径之类的参数，参数修改过一次后在项目开发中也不会去动，如果有改动也只需要在代码里修改就好了。 其实可能是我自己比较钻牛角尖，导致很多时候开发不必要的编辑器，到最后发现还不如">
-<meta name="twitter:image" content="http://www.reedleaves.ml/imgs/2019/07/d2fd7b95edcd0800.png">
+<meta name="twitter:image" content="http://106.13.190.225//imgs/2019/07/d2fd7b95edcd0800.png">
 
 
 
@@ -422,12 +422,24 @@
                 
               
 
-              <time title="创建时间：2019-07-11 16:15:32 / 修改时间：23:25:26" itemprop="dateCreated datePublished" datetime="2019-07-11T16:15:32+08:00">2019-07-11</time>
+              <time title="创建时间：2019-07-11 16:15:32" itemprop="dateCreated datePublished" datetime="2019-07-11T16:15:32+08:00">2019-07-11</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-24 18:54:07" itemprop="dateModified" datetime="2019-09-24T18:54:07+08:00">2019-09-24</time>
               
             
           </span>
@@ -537,7 +549,7 @@
 
 <h2 id="为什么要使用编辑器"><a href="#为什么要使用编辑器" class="headerlink" title="为什么要使用编辑器"></a>为什么要使用编辑器</h2><p>在游戏开发的过程中，有时候我们需要开发编辑器来使得工作更加便捷，有的模块只需要进行配置表格就可以，而有的模块由于外部的工具并不合适需要自行开发编辑器，比如用 Excel 编辑帧动画，虽然也可以做到但是会变得很难实时预览导致效率低下（拿Unity自带的编辑器举个栗子），但是例如一些语言表功能之类的，可能用配置表更合适，因为本身 Excel 或其他 文本编辑器 就包含了大部分文本操作的功能。</p>
 <p>其实分析下来，无论是编辑器还是配置表甚至是 Unity，都需要有一个数据的保存以及其序列化的方式，把具体的部分进行数据结构的定义，然后选择保存的数据格式以及序列化的方法，在运行时载入到对应的 C#类中，可以以文本方式打开 Unity 的 prefab文件，就可以发现在 Unity 属性面板上填入的数据都已经在这个文本中了，具体可以参照此链接<a href="https://www.cnblogs.com/CodeGize/p/8697227.html" target="_blank" rel="noopener">Unity文件、文件引用、meta详解</a>。</p>
-<p><img src="http://www.reedleaves.ml/imgs/2019/07/d2fd7b95edcd0800.png" alt="编辑器与配置表的对比"></p>
+<p><img src="http://106.13.190.225//imgs/2019/07/d2fd7b95edcd0800.png" alt="编辑器与配置表的对比"></p>
 <p>如上图一样，当编辑只需要进行文本的一些操作，那就使用配置表的方案，而需要实时查看一些效果或者需要对照图片、音乐等资源进行操作时就可以选择编辑器的方案。</p>
 <h2 id="采用何种编辑器方案"><a href="#采用何种编辑器方案" class="headerlink" title="采用何种编辑器方案"></a>采用何种编辑器方案</h2><p>在进行编辑器制作的过程中，也要明确一些东西，编辑器不仅仅只有做 Unity Editor 的方案，还可以选择做运行时编辑器，做运行时编辑器的好处是通过接入同样逻辑的脚本可以在编辑的过程中看到和游戏运行时的一样的效果，方便测试，坏处也比较明显，可能要维护两份代码，复用性差一些，针对性强一些，实际上已经使用了编辑器就说明这个需求是针对某一类型甚至特定的游戏了。</p>
 <p>另外在序列化的方面，有些插件习惯把数据保存到 Prefab 上，我感觉这种不太好，很容易造成数据的丢失，对 Prefab 的修改比较频繁是一方面，数据耦合在一起其实也容易出现一些问题，也不太合适做扩展。可以选择使用 Unity 的 ScriptableObject，在运行时动态载入，或者其他一些用的比较顺手的文件保存方法，毕竟数据的修改、展示都可以在编辑器中进行了，不用太在意数据保存方案本身的展示、编辑问题。</p>
@@ -590,9 +602,9 @@
           
             <a href="/tags/游戏开发/" rel="tag"># 游戏开发</a>
           
-            <a href="/tags/思想/" rel="tag"># 思想</a>
-          
             <a href="/tags/编辑器/" rel="tag"># 编辑器</a>
+          
+            <a href="/tags/思想/" rel="tag"># 思想</a>
           
         </div>
       

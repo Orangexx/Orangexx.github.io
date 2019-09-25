@@ -111,13 +111,13 @@
 <meta property="og:site_name" content="自由">
 <meta property="og:description" content="前言上一章讲了使用 LWRP 的 Renderer Feature 来实现遮挡显示轮廓的效果，这节课对应着来用 Shader 实现，让我们看一下具体 Renderer Feature 完成了 Shader 中的哪些操作  另外，和上一节的效果相同，存在同一个BUG，使用同一个遮挡显示效果的 GameObject A与B，当都被遮挡住时，两者的轮廓不一定是A在前还是B在前，因为同一队列的两个物体不一">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.reedleaves.ml/imgs/2019/07/34d3261e83de3387.gif">
-<meta property="og:image" content="http://www.reedleaves.ml/imgs/2019/07/7eaa3c60f7d9722b.png">
-<meta property="og:updated_time" content="2019-07-28T16:53:32.114Z">
+<meta property="og:image" content="http://106.13.190.225//imgs/2019/07/34d3261e83de3387.gif">
+<meta property="og:image" content="http://106.13.190.225//imgs/2019/07/7eaa3c60f7d9722b.png">
+<meta property="og:updated_time" content="2019-09-24T10:54:06.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unity渲染管线（三） 深度值、渲染队列">
 <meta name="twitter:description" content="前言上一章讲了使用 LWRP 的 Renderer Feature 来实现遮挡显示轮廓的效果，这节课对应着来用 Shader 实现，让我们看一下具体 Renderer Feature 完成了 Shader 中的哪些操作  另外，和上一节的效果相同，存在同一个BUG，使用同一个遮挡显示效果的 GameObject A与B，当都被遮挡住时，两者的轮廓不一定是A在前还是B在前，因为同一队列的两个物体不一">
-<meta name="twitter:image" content="http://www.reedleaves.ml/imgs/2019/07/34d3261e83de3387.gif">
+<meta name="twitter:image" content="http://106.13.190.225//imgs/2019/07/34d3261e83de3387.gif">
 
 
 
@@ -440,7 +440,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-29 00:53:32" itemprop="dateModified" datetime="2019-07-29T00:53:32+08:00">2019-07-29</time>
+                <time title="修改时间：2019-09-24 18:54:06" itemprop="dateModified" datetime="2019-09-24T18:54:06+08:00">2019-09-24</time>
               
             
           </span>
@@ -545,7 +545,7 @@
 
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一章讲了使用 LWRP 的 Renderer Feature 来实现遮挡显示轮廓的效果，这节课对应着来用 Shader 实现，让我们看一下具体 Renderer Feature 完成了 Shader 中的哪些操作</p>
-<p><img src="http://www.reedleaves.ml/imgs/2019/07/34d3261e83de3387.gif" alt="效果图"></p>
+<p><img src="http://106.13.190.225//imgs/2019/07/34d3261e83de3387.gif" alt="效果图"></p>
 <p>另外，和上一节的效果相同，存在同一个BUG，使用同一个遮挡显示效果的 GameObject A与B，当都被遮挡住时，两者的轮廓不一定是A在前还是B在前，因为同一队列的两个物体不一定是谁先被渲染，目前没有找到控制该顺序的较好方法。</p>
 <a id="more"></a>
 
@@ -572,7 +572,7 @@
 <li>首先对于深度值写入来说，我们不希望加入的遮挡显示影响其他物体的渲染，即在渲染遮挡的部分的时候我们不会写入深度。<strong>即，渲染遮挡部分的 Pass  ZWrite off</strong></li>
 <li>我们需要判断片元是否被遮挡，才能进行渲染被遮挡的部分为想要的效果。那我们就需要将 SubShader 队列 尽量设置到后面，只有当其他物体渲染完毕写入深度值后，才可以得知是否需要渲染成被遮挡的样子。<strong>即，在被应用的 Shader 的 SubShader Tag{“Queue” = “Geometry+200”}，队列尽量设置在后面</strong></li>
 <li>被遮挡的部分判断我们使用深度值大于缓冲中的深度值，<strong>即，ZTest Greater</strong></li>
-<li>由于我们不希望使用同一个遮挡效果的片元之间有互相的遮挡效果，那么我们就应该将遮挡显示轮廓效果的 Pass 放到正常显示的 Pass 之前，不然的话，先渲染了正常显示的部分，写入了深度值，再渲染遮挡现实效果的部分就会出现这样的效果。<br><img src="http://www.reedleaves.ml/imgs/2019/07/7eaa3c60f7d9722b.png" alt></li>
+<li>由于我们不希望使用同一个遮挡效果的片元之间有互相的遮挡效果，那么我们就应该将遮挡显示轮廓效果的 Pass 放到正常显示的 Pass 之前，不然的话，先渲染了正常显示的部分，写入了深度值，再渲染遮挡现实效果的部分就会出现这样的效果。<br><img src="http://106.13.190.225//imgs/2019/07/7eaa3c60f7d9722b.png" alt></li>
 </ul>
 <p>大家可以更改一下 UsePass 的位置，更改一下深度测试、深度写入的开关或者更改一下队列值，会对整体的理解更深刻一些，或者使用 Windows—&gt;Analysis—&gt;FrameDebug 窗口一步步渲染看下效果。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>可以看到，其实使用 Shader 也比较方便，只需要自定义一个 Pass，但是不能根据层级筛选，并且需要手动在代码中修改，队列设置也需要在项目中规定好，而不是可视化地设置。</p>
