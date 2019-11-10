@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta name="msvalidate.01" content="B311C7FF048D204AF7D3ED7FD460DB4C">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/custom/logo.png?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":true,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+
+</script>
+
+
+  
+
+
+
+
+
+
+  <meta name="description" content="才不给你看嘞！！">
+<meta name="keywords" content="Web,计科">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自由">
+<meta property="og:url" content="https://orangexx.github.io/2019/11/03/Net/DotNetCore/asp.net core B站实战记录/index.html">
+<meta property="og:site_name" content="自由">
+<meta property="og:description" content="才不给你看嘞！！">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-10T12:11:52.275Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自由">
+<meta name="twitter:description" content="才不给你看嘞！！">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://orangexx.github.io/2019/11/03/Net/DotNetCore/asp.net core B站实战记录/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title> | 自由</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">自由</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-日常">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/日常/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日常</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-unity">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/Unity/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>Unity</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-acg">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/ACG/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>ACG</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-计院素养">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/计院素养" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>计院素养</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://orangexx.github.io/2019/11/03/Net/DotNetCore/asp.net core B站实战记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="胡桃丐丐">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://i.loli.net/2019/06/14/5d037fb3ab80833767.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="自由">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-03 13:05:05" itemprop="dateCreated datePublished" datetime="2019-11-03T13:05:05+08:00">2019-11-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-11-10 20:11:52" itemprop="dateModified" datetime="2019-11-10T20:11:52+08:00">2019-11-10</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Net/" itemprop="url" rel="index"><span itemprop="name">.Net</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/11/03/Net/DotNetCore/asp.net core B站实战记录/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/03/Net/DotNetCore/asp.net core B站实战记录/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/11/03/Net/DotNetCore/asp.net core B站实战记录/" class="leancloud_visitors" data-flag-title>
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">667</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<div id="hbe-security">
+  <div class="hbe-input-container">
+  <input type="password" class="hbe-form-control" id="pass" placeholder="暂时不想给你看0-0">
+    <label for="pass">暂时不想给你看0-0</label>
+    <div class="bottom-line"></div>
+  </div>
+</div>
+<div id="decryptionError" style="display: none;">Incorrect Password!</div>
+<div id="noContentError" style="display: none;">No content to display!</div>
+<div id="encrypt-blog" style="display:none">
+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
+</div>
+<script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>胡桃丐丐</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="https://orangexx.github.io/2019/11/03/Net/DotNetCore/asp.net core B站实战记录/">https://orangexx.github.io/2019/11/03/Net/DotNetCore/asp.net core B站实战记录/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Web/" rel="tag"># Web</a>
+          
+            <a href="/tags/计科/" rel="tag"># 计科</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/10/成长/不定时记录/19.10.10桐乡/" rel="next" title="19.10.10桐乡">
+                <i class="fa fa-chevron-left"></i> 19.10.10桐乡
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/09/成长/不定时记录/河之南，湖之西/不仅仅是老师/" rel="prev" title="不仅仅是老师">
+                不仅仅是老师 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+ 
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+	  
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://i.loli.net/2019/06/14/5d037fb3ab80833767.png" alt="胡桃丐丐">
+            
+              <p class="site-author-name" itemprop="name">胡桃丐丐</p>
+			  			  <script src="https://v1.hitokoto.cn/?c=g&encode=js&select=%23hitokoto" defer></script>
+              <div class="site-description motion-element" id="hitokoto"></div>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">51</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                  <a href="https://github.com/Orangexx" title="GitHub &rarr; https://github.com/Orangexx" rel="noopener" target="_blank">GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                  <a href="/xiaoxiaolala@outlook.com" title="E-Mail &rarr; xiaoxiaolala@outlook.com">E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                  <a href="https://www.douban.com/people/Superxiaoxiaola/" title="豆瓣 &rarr; https://www.douban.com/people/Superxiaoxiaola/" rel="noopener" target="_blank">豆瓣</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友链
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.qxxmx.com" title="http://www.qxxmx.com" rel="noopener" target="_blank">小草莓</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://aoguai.top" title="http://aoguai.top" rel="noopener" target="_blank">奥怪</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#各模块"><span class="nav-number">2.</span> <span class="nav-text">各模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Asp-Net-Core-内置"><span class="nav-number">2.1.</span> <span class="nav-text">Asp .Net Core 内置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EntityFramework-Core"><span class="nav-number">2.2.</span> <span class="nav-text">EntityFramework Core</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Repository-UnitOfWork"><span class="nav-number">2.3.</span> <span class="nav-text">Repository  UnitOfWork</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#映射关系-Mapping"><span class="nav-number">2.4.</span> <span class="nav-text">映射关系 Mapping</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+	
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">胡桃丐丐</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">89k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">2:42</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.2"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'AP1anmR9CF83gr4EnlJlMJjg-gzGzoHsz',
+    appKey: 'GKKaUF0N5JoVrbly58YFg3PF',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: 'zh-cn' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "./public/search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+</body>
+</html>
