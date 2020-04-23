@@ -104,7 +104,7 @@
 
 
   <meta name="description" content="在寻找 Chrome 书签同步方案的时候找到了与 WebDAV 相关的插件 Floccus，Floccus 使用 WebDAV 使得可以同步书签文件到自定义的云盘上，从而解决因网络原因同步失败的状况。简单来说，WebDAV 就是一种可以使得应用文件存储到用户自定义的云盘位置。国内 坚果云 支持 WebDAV，其余是否支持大家可以具体搜索一下。">
-<meta name="keywords" content="文件同步,小技巧">
+<meta name="keywords" content="小技巧,文件同步">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WebDAV 同步文件">
 <meta property="og:url" content="https://orangexx.github.io/2019/06/16/计院素养/计院素养/WebDAV 同步文件/index.html">
@@ -583,9 +583,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/文件同步/" rel="tag"># 文件同步</a>
-          
             <a href="/tags/小技巧/" rel="tag"># 小技巧</a>
+          
+            <a href="/tags/文件同步/" rel="tag"># 文件同步</a>
           
         </div>
       
@@ -1148,18 +1148,25 @@
   guest = guest.split(',').filter(function(item) {
     return GUEST.indexOf(item) > -1;
   });
+    var RequiredFields = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick';
+  requiredFields = requiredFields.split(',').filter(function(item) {
+    return RequiredFields.indexOf(item) > -1;
+  });
   new Valine({
     el: '#comments',
     verify: false,
-    notify: true,
+    notify: false,
     appId: 'AP1anmR9CF83gr4EnlJlMJjg-gzGzoHsz',
     appKey: 'GKKaUF0N5JoVrbly58YFg3PF',
-    placeholder: '最好留下邮箱，收到回复时会提醒哒',
-    avatar: 'mm',
+    placeholder: '最好留个昵称呀',
+    avatar: 'robohash',
     meta: guest,
     pageSize: '10' || 10,
     visitor: true,
-    lang: 'zh-cn' || 'zh-cn'
+    lang: 'zh-cn' || 'zh-cn',
+    enableQQ: true,
+    requiredFields: requiredFields
   });
 </script>
 

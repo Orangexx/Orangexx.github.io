@@ -104,7 +104,7 @@
 
 
   <meta name="description" content="一些平时可能用到或用不到的小技巧">
-<meta name="keywords" content="小技巧,Windows">
+<meta name="keywords" content="Windows,小技巧">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows操作技巧 (持续更新中~~~)">
 <meta property="og:url" content="https://orangexx.github.io/2019/06/15/计院素养/计院素养/Windows操作技巧/index.html">
@@ -582,9 +582,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/小技巧/" rel="tag"># 小技巧</a>
-          
             <a href="/tags/Windows/" rel="tag"># Windows</a>
+          
+            <a href="/tags/小技巧/" rel="tag"># 小技巧</a>
           
         </div>
       
@@ -1173,18 +1173,25 @@
   guest = guest.split(',').filter(function(item) {
     return GUEST.indexOf(item) > -1;
   });
+    var RequiredFields = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick';
+  requiredFields = requiredFields.split(',').filter(function(item) {
+    return RequiredFields.indexOf(item) > -1;
+  });
   new Valine({
     el: '#comments',
     verify: false,
-    notify: true,
+    notify: false,
     appId: 'AP1anmR9CF83gr4EnlJlMJjg-gzGzoHsz',
     appKey: 'GKKaUF0N5JoVrbly58YFg3PF',
-    placeholder: '最好留下邮箱，收到回复时会提醒哒',
-    avatar: 'mm',
+    placeholder: '最好留个昵称呀',
+    avatar: 'robohash',
     meta: guest,
     pageSize: '10' || 10,
     visitor: true,
-    lang: 'zh-cn' || 'zh-cn'
+    lang: 'zh-cn' || 'zh-cn',
+    enableQQ: true,
+    requiredFields: requiredFields
   });
 </script>
 
